@@ -1,0 +1,12 @@
+﻿@model int
+<body>
+    <h2>Order thành công !!!</h2>
+    <p>Đơn hang của bạn đã đặt thanh công với mã đơn hàng là @Model.</p>
+
+    <script>
+        // Wait for 15 seconds then redirect to home/index
+        setTimeout(function () {
+            window.location.href = "http://localhost:5241/"; // Replace "/home/index" with your actual home page URL
+        }, 15000); // 15 seconds in milliseconds
+    </script>
+</body>

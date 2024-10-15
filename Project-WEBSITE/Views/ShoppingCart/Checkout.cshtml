@@ -1,0 +1,97 @@
+﻿@model Order
+@Html.Partial("_NavPartial")
+<div class="hero-wrap hero-bread" style="background-image: url('images/about.jpg');">
+	<div class="container">
+		<div class="row no-gutters slider-text align-items-center justify-content-center">
+			<div class="col-md-9 ftco-animate text-center">
+				<p class="breadcrumbs"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Home</a></span> <span>checkout</span></p>
+				<h1 class="mb-0 bread">checkout</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Temp-->
+<!--Temp-->
+<section class="ftco-section">
+	<form asp-action="Checkout" method="post" onsubmit="return validateForm()">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-10 ftco-animate">
+					<form action="#" class="billing-form">
+						<h3 class="mb-4 billing-heading">Billing Details</h3>
+						<div class="row align-items-end">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="firstname">First Name</label>
+									<input id="firstname" type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+
+							<div class="w-100"></div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label asp-for="ShippingAddress">Shipping Address</label>
+									<input id="ShippingAddress" asp-for="ShippingAddress" class="form-control" placeholder="House number and street name">
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="phone">Phone</label>
+									<input id="phone" type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label asp-for="Notes">Notes</label>
+									<textarea id="Notes" asp-for="Notes" class="form-control" placeholder=""></textarea>
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="emailaddress">Email Address</label>
+									<input id="emailaddress" type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary py-3 px-4">Place an order</button>
+					</form>
+				</div> <!-- .col-md-8 -->
+			</div>
+		</div>
+	</form>
+</section>
+
+<!-- JavaScript Validation Function -->
+<script>
+	function validateForm() {
+		var firstName = document.getElementById('firstname').value;
+		var shippingAddress = document.getElementById('ShippingAddress').value;
+		var phone = document.getElementById('phone').value;
+		var notes = document.getElementById('Notes').value;
+		var emailAddress = document.getElementById('emailaddress').value;
+
+		if (firstName == "") {
+			alert("First name must be filled out");
+			return false;
+		}
+		if (shippingAddress == "") {
+			alert("Shipping address must be filled out");
+			return false;
+		}
+		if (phone == "") {
+			alert("Phone must be filled out");
+			return false;
+		}
+		if (notes == "") {
+			alert("Notes must be filled out");
+			return false;
+		}
+		if (emailAddress == "") {
+			alert("Email address must be filled out");
+			return false;
+		}
+	}
+</script>

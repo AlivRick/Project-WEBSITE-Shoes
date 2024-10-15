@@ -1,0 +1,87 @@
+﻿ @model Project_WEBSITE.Models.Order
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<style>
+    .row {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .col-sm-10 {
+        text-align: center;
+    }
+
+    .label {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .value {
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        padding: 8px 12px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+</style>
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row">
+        <dd class="col-sm-10">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.ApplicationUser.FullName)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.ApplicationUser.FullName)
+            </div>
+        </dd>
+        <dt class="col-sm-10">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.OrderDate)
+            </div>
+        </dt>
+        <dd class="col-sm-10">
+            <div class="label">
+                Product Details
+            </div>
+            <div class="value">
+                @foreach (var detail in Model.OrderDetails)
+                {
+                    <div>
+                        ID: @detail.ProductId - Số lượng: @detail.Quantity
+                    </div>
+                }
+            </div>
+        </dd>
+        <dd class="col-sm-10">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.TotalPrice)
+            </div>
+        </dd>
+        <dd class="col-sm-10">
+            <div class="label">
+                @Html.DisplayNameFor(model => model.ShippingAddress)
+            </div>
+            <div class="value">
+                @Html.DisplayFor(model => model.ShippingAddress)
+            </div>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
